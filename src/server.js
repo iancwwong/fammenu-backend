@@ -1,15 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const schema = require('./schemas/schema');
-const FoodItems = require('./schemas/foodItem');
 const bodyParser = require('body-parser');
 const { ApolloServer } = require('apollo-server-express');
+const conf = require('./conf');
 
 // Prepare DB connection
-// TODO: 'mongo' is the name of the running docker container... 
-// Need to make this configurable, as well as the DB port and server port
-const DB_URL = "mongodb://mongo:27017/fammenu"
-const dbConnection = mongoose.connect(DB_URL, { useNewUrlParser: true });
+console.log("Connecting with DB URL: " + conf.DB_URL);
+const dbConnection = mongoose.connect(conf.DB_URL, { useNewUrlParser: true });
 dbConnection.then((db) => {
     console.log('Connected successfully to DB!');
 }, (err) => {
@@ -34,8 +32,7 @@ app.get('/', (req, res) => {
 });
 
 // Run server
-const port = 3000;
-app.listen(port, () => {
-    console.log(`App listening at http://localhost:${port}`);
+app.listen(conf.APP_PORT, () => {
+    console.log(`App listening at http://localhost:${conf.APP_PORT}`);
     console.log(`Consult graphQL playground at: ${server.graphqlPath}`);
 });

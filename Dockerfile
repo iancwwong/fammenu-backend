@@ -12,4 +12,4 @@ ADD . /app
 
 # Start the app from container
 EXPOSE 3000
-CMD [ "node", "src/server.js" ]
+CMD [ "DB_HOST=mongo", "DB_PORT=27017", "node", "src/server.js" ]
