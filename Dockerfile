@@ -11,5 +11,6 @@ RUN npm install
 ADD . /app
 
 # Start the app from container
+ENV DB_HOST=mongo DB_PORT=27017
 EXPOSE 3000
-CMD [ "DB_HOST=mongo", "DB_PORT=27017", "node", "src/server.js" ]
+CMD [ "node", "src/server.js" ]
