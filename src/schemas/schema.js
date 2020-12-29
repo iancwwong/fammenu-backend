@@ -28,7 +28,7 @@ const allTypeDefs = gql `
     }
 
     type Mutation {
-        addFoodItem(name: String!, labels: [String!]!, cuisine: String!): FoodItem
+        addFoodItem(name: String!, labels: [String!]!, cuisine: String): FoodItem
         updateFoodItem(name: String!, labels: [String!]!, cuisine: String!, chosenDates: [Date!]!): FoodItem
         deleteFoodItem(id: ID!): FoodItem
     }
@@ -130,7 +130,8 @@ const allResolvers = {
                     $set: {
                         name: args.name,
                         cuisine: args.cuisine,
-                        labels: args.labels
+                        labels: args.labels,
+                        chosenDates: args.chosenDate
                     }
                 }, {new: true}, (err, FoodItem) => {
                     if (err) console.error('Error with updating food item (' + args.id + '):' + err);
