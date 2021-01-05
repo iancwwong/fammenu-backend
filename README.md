@@ -2,6 +2,10 @@
 
 ## Running notes
 
+Running in dev mode:
+
+`node src/server.js`
+
 Initailise the database (MongoDB running on port 27017):
 ```
 cd data
