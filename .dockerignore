@@ -1,0 +1,12 @@
+# Node stuff
+*/node_modules
+*/npm-debug.log
+
+# Git stuff
+.gitignore
+.git
+.cache
+README.md
+
+# Other sources
+*/data
