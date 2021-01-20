@@ -1,5 +1,9 @@
 # Backend
 
+The backend component of the fammenu project! 
+
+Currently an Apollo Server with a graphql endpoint for the frontend.
+
 ## Running notes
 
 Running in dev mode:
